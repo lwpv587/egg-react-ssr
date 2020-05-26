@@ -1,0 +1,24 @@
+.home-wrapper {
+  .list-content {
+    padding: 30px;
+    box-sizing: border-box;
+    &::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+    .list-item {
+      float: left;
+      width: 33.33%;
+      text-align: center;
+      padding: 10px;
+      box-sizing: border-box;
+      h1 {
+        font-size: 18px;
+      }
+      img {
+        max-width: 100%;
+      }
+    }
+  }
+}
