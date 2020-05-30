@@ -18,7 +18,7 @@ module.exports = () => {
   };
 
   exports.webpack = {
-    browser: false,
+    browser: 'http://localhost:7001',
     webpackConfigList: easywebpack.getWebpackConfig()
   };
 
