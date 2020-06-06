@@ -10,6 +10,7 @@ module.exports = app => {
   // my-start
   router.get('/my', controller.my.index.list);
   router.get('/mydtl/:id', controller.my.index.detail);
+  router.get('/api/mydtl/:id', controller.my.index.detailApi);
   // my-end
   router.get('/*', controller.home.index.ssr);
 };

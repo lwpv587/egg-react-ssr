@@ -1,7 +1,14 @@
 import React, { Component } from 'react'
 import Layout from 'component/layout/default'
+import io from 'framework/request'
 import './index.scss'
 class Detail extends Component {
+  static async asyncData (locals) {
+    const url = locals.ctx.request.url
+    const res = await io.get(`/api${url}`, locals)
+    return { detailData: res.data }
+  }
+
   render () {
     const { datas } = this.props.detailData
     return (
