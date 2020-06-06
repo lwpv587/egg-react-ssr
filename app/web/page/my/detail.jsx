@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import Layout from 'component/layout/blog'
+import Layout from 'component/layout/default'
 import './index.scss'
-class Mydtl extends Component {
+class Detail extends Component {
   render () {
     const { datas } = this.props.detailData
     return (
-      <Layout>
+      <Layout {...this.props}>
         <div className="detail-wrapper">
           <h1 className="title">{datas.title}</h1>
           <img src={datas.imageUrl} alt="" width="500" />
@@ -19,4 +19,4 @@ class Mydtl extends Component {
   }
 }
 
-export default Mydtl
+export default Detail
