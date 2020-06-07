@@ -1,14 +1,30 @@
-import React, { Component } from 'react'
+import React, { Component, useState, useEffect } from 'react'
 
-class Item extends Component {
-  render () {
-    return (
-      <div className="list-item" onClick={this.props.handleClick}>
-        <h1 className="item-title">{this.props.title}</h1>
-        <img src={this.props.imageUrl} alt="" />
-      </div>
-    )
-  }
+// Class组件
+// class Item extends Component {
+//   render () {
+//     return (
+//       <div className="list-item" onClick={this.props.handleClick}>
+//         <h1 className="item-title">{this.props.title}</h1>
+//         <img src={this.props.imageUrl} alt="" />
+//       </div>
+//     )
+//   }
+// }
+
+// Hook函数组件
+function Item (props) {
+  const [free, setFree] = useState(false)
+  useEffect(() => {
+    console.log(free)
+  })
+  return (
+    <div className="list-item">
+      <h1 className="item-title" onClick={props.handleClick}>{props.title}</h1>
+      <img src={props.imageUrl} onClick={props.handleClick} alt="" />
+      <p className="item-free"><span onClick={() => setFree(!free)}>{free ? '免费' : '收费'}</span></p>
+    </div>
+  )
 }
 
 export default Item
