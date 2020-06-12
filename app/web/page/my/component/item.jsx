@@ -14,15 +14,19 @@ import React, { Component, useState, useEffect } from 'react'
 
 // Hook函数组件
 function Item (props) {
+  // useReducer
   const [free, setFree] = useState(false)
   useEffect(() => {
-    console.log(free)
+    console.log('安装')
+    return () => {
+      console.log('卸载')
+    }
   })
   return (
     <div className="list-item">
       <h1 className="item-title" onClick={props.handleClick}>{props.title}</h1>
       <img src={props.imageUrl} onClick={props.handleClick} alt="" />
-      <p className="item-free"><span onClick={() => setFree(!free)}>{free ? '免费' : '收费'}</span></p>
+      <p className="item-free"><span onClick={() => setFree(prev => !prev)}>{free ? '免费' : '收费'}</span></p>
     </div>
   )
 }
