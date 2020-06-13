@@ -10,7 +10,8 @@ module.exports = {
     async: 'app/web/page/async/async.jsx',
     // my
     my: 'app/web/page/my/index.jsx',
-    mydtl: 'app/web/page/my/detail.jsx'
+    mydtl: 'app/web/page/my/detail.jsx',
+    user: 'app/web/page/my/user.jsx'
   },
   plugins: [
     {

@@ -1,6 +1,7 @@
 'use strict'
 
 const egg = require('egg')
+const db = require('../../../nedb/database')
 
 class MyController extends egg.Controller {
   async list () {
@@ -24,6 +25,20 @@ class MyController extends egg.Controller {
     const { ctx, service } = this
     const result = await service.my.detail(ctx.params.id)
     ctx.body = result
+  }
+
+  async user () {
+    const { ctx } = this
+    const result = await new Promise((resolve, reject) => {
+      return db.find({}, (err, docs) => {
+        if (!err) {
+          resolve(docs)
+        } else {
+          reject(err)
+        }
+      })
+    })
+    await ctx.render('user.js', { title: '用户列表', userList: result })
   }
 }
 
