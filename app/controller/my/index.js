@@ -40,6 +40,24 @@ class MyController extends egg.Controller {
     })
     await ctx.render('user.js', { title: '用户列表', userList: result })
   }
+
+  async userAddApi () {
+    const { ctx } = this
+    const payload = ctx.request.query
+    const result = await new Promise((resolve, reject) => {
+      db.insert({
+        name: payload.name,
+        password: payload.password
+      }, (err, docs) => {
+        if (!err) {
+          resolve({ code: 0, data: docs })
+        } else {
+          reject(err)
+        }
+      })
+    })
+    ctx.body = result
+  }
 }
 
 module.exports = MyController
