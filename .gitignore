@@ -14,7 +14,7 @@ artifacts.json
 _site
 logs
 .vscode
-.db
+*.db
 config/buildConfig.json
 config/manifest.json
 config/manifest-dll.json
