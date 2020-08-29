@@ -58,6 +58,21 @@ class MyController extends egg.Controller {
     })
     ctx.body = result
   }
+
+  async userDelApi () {
+    const { ctx } = this
+    const payload = ctx.request.query
+    const result = await new Promise((resolve, reject) => {
+      db.remove({ _id: payload.id }, (err, docs) => {
+        if (!err) {
+          resolve({ code: 0, data: docs })
+        } else {
+          reject(err)
+        }
+      })
+    })
+    ctx.body = result
+  }
 }
 
 module.exports = MyController

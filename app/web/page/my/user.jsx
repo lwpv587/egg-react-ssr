@@ -11,6 +11,11 @@ function User (props) {
       window.location.reload()
     })
   }
+  function delUser (item) {
+    io.get(`/api/user/delete?id=${item._id}`, window.__INITIAL_STATE__).then(res => {
+      window.location.reload()
+    })
+  }
   return (
     <Layout {...props}>
       <div className="user-wrapper">
@@ -21,6 +26,7 @@ function User (props) {
               <tr>
                 <th>账号</th>
                 <th>密码</th>
+                <th>操作</th>
               </tr>
             </thead>
             <tbody>
@@ -28,6 +34,7 @@ function User (props) {
                 <tr key={item.name}>
                   <td>{item.name}</td>
                   <td>{item.password}</td>
+                  <td><button onClick={() => delUser(item)}>X</button></td>
                 </tr>
               ))}
             </tbody>

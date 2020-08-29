@@ -13,6 +13,7 @@ module.exports = app => {
   router.get('/api/mydtl/:id', controller.my.index.detailApi);
   router.get('/user', controller.my.index.user);
   router.get('/api/user/add', controller.my.index.userAddApi);
+  router.get('/api/user/delete', controller.my.index.userDelApi);
   // my-end
   router.get('/*', controller.home.index.ssr);
 };
