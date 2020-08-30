@@ -1,4 +1,5 @@
 import React, { Component, useState, useEffect } from 'react'
+import { consoleUrl } from 'lwp-npm-study'
 
 // Class组件
 // class Item extends Component {
@@ -20,6 +21,7 @@ function Item (props) {
     console.log('安装')
     return () => {
       console.log('卸载')
+      consoleUrl()
     }
   })
   return (
